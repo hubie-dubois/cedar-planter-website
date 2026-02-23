@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cedar Planter Co. | Handmade Cedar Planter Boxes</title>
+    <meta
+      name="description"
+      content="Shop handcrafted cedar planter boxes built for beauty, drainage, and long outdoor life. Order online and pay securely."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-one"></div>
+    <div class="bg-shape bg-shape-two"></div>
+
+    <header class="site-header">
+      <div class="brand">Cedar Planter Co.</div>
+      <a class="header-cta" href="#order">Order Now</a>
+    </header>
+
+    <main>
+      <section class="hero section reveal">
+        <div class="hero-copy">
+          <p class="eyebrow">Handmade. Solid Cedar. Built To Last.</p>
+          <h1>Premium cedar planter boxes for patios, porches, and backyards.</h1>
+          <p class="lead">
+            Each box is handcrafted with quality joinery and a timeless profile that
+            looks great from day one and seasons beautifully over time.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#order">Buy A Planter</a>
+            <a class="btn btn-secondary" href="#gallery">View Gallery</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img
+            src="assets/images/hero-planter.jpeg"
+            alt="Cedar planter box outdoors with a tomato plant"
+          />
+        </div>
+      </section>
+
+      <section class="features section reveal">
+        <article>
+          <h2>Built for real growing</h2>
+          <p>
+            Sized for herbs, flowers, and vegetables with room for strong root
+            development.
+          </p>
+        </article>
+        <article>
+          <h2>Natural cedar durability</h2>
+          <p>
+            Cedar naturally resists decay and outdoor wear, making it ideal for
+            long-term planters.
+          </p>
+        </article>
+        <article>
+          <h2>Handmade quality</h2>
+          <p>
+            Every planter is hand-built one at a time, so you get craftsmanship
+            instead of mass production.
+          </p>
+        </article>
+      </section>
+
+      <section class="product section reveal" id="order">
+        <div class="product-card">
+          <p class="eyebrow">Featured Product</p>
+          <h2>Classic Cedar Planter Box</h2>
+          <p class="spec">Approx. 18&quot; x 18&quot; x 18&quot;</p>
+          <p>
+            Includes heavy-duty liner and drainage-ready interior. Great for tomatoes,
+            peppers, herbs, and annuals.
+          </p>
+          <div class="price-row">
+            <p class="price" id="unit-price" data-price-cents="14900">$149</p>
+            <p class="price-note">Per planter</p>
+          </div>
+
+          <form id="checkout-form" class="checkout-form">
+            <label for="quantity">Quantity</label>
+            <select id="quantity" name="quantity">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+
+            <p class="total">Estimated total: <strong id="estimated-total">$149</strong></p>
+
+            <a
+              id="pay-link"
+              class="btn btn-primary"
+              href="https://buy.stripe.com/test_placeholder"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Pay Securely
+            </a>
+            <p class="small-note">
+              Secure payment powered by Stripe Checkout.
+            </p>
+          </form>
+        </div>
+
+        <aside class="custom-order">
+          <h3>Need a custom size?</h3>
+          <p>
+            Submit your request and I will follow up with pricing and lead time.
+          </p>
+          <form
+            action="https://formspree.io/f/your-form-id"
+            method="POST"
+            class="custom-form"
+          >
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+
+            <label for="details">Project details</label>
+            <textarea
+              id="details"
+              name="details"
+              rows="4"
+              placeholder="Dimensions, quantity, delivery ZIP, etc."
+              required
+            ></textarea>
+
+            <button class="btn btn-secondary" type="submit">Send Request</button>
+          </form>
+        </aside>
+      </section>
+
+      <section class="gallery section reveal" id="gallery">
+        <div class="gallery-heading">
+          <p class="eyebrow">Gallery</p>
+          <h2>From workshop to backyard</h2>
+        </div>
+        <div class="grid">
+          <img src="assets/images/gallery-side.jpeg" alt="Side view of cedar planter with tomato plant" />
+          <img src="assets/images/gallery-angle.jpeg" alt="Angle view of cedar planter on deck" />
+          <img src="assets/images/gallery-workshop.jpeg" alt="Cedar planter in workshop before finishing" />
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="year"></span> Cedar Planter Co. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
