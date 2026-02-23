@@ -5,7 +5,7 @@ const payLink = document.getElementById("pay-link");
 const yearEl = document.getElementById("year");
 
 // Replace with your real Stripe Payment Link once created.
-const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/test_placeholder";
+const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/dRm14o9Qa3zf8ULgERbMQ00";
 
 function formatUSD(cents) {
   return new Intl.NumberFormat("en-US", {
