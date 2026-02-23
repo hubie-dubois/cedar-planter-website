@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light dark;
   --bg: #f8f4ee;
   --surface: #fffdf8;
   --text: #2a2019;
@@ -7,6 +8,12 @@
   --accent-strong: #245236;
   --border: #e6d8c8;
   --shadow: 0 18px 40px rgba(53, 33, 10, 0.12);
+  --bg-grad-one: #f2e5d6;
+  --bg-grad-two: #efe7d2;
+  --shape-one: #d6e7d1;
+  --shape-two: #f1dfca;
+  --input-bg: #fff;
+  --image-border: rgba(110, 80, 40, 0.15);
 }
 
 * {
@@ -17,8 +24,8 @@ body {
   margin: 0;
   font-family: "Manrope", sans-serif;
   color: var(--text);
-  background: radial-gradient(circle at 12% 20%, #f2e5d6 0%, transparent 40%),
-    radial-gradient(circle at 85% 0%, #efe7d2 0%, transparent 35%), var(--bg);
+  background: radial-gradient(circle at 12% 20%, var(--bg-grad-one) 0%, transparent 40%),
+    radial-gradient(circle at 85% 0%, var(--bg-grad-two) 0%, transparent 35%), var(--bg);
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -39,7 +46,7 @@ img {
 .bg-shape-one {
   width: 360px;
   height: 360px;
-  background: #d6e7d1;
+  background: var(--shape-one);
   top: -120px;
   right: -120px;
 }
@@ -47,7 +54,7 @@ img {
 .bg-shape-two {
   width: 280px;
   height: 280px;
-  background: #f1dfca;
+  background: var(--shape-two);
   bottom: 10%;
   left: -90px;
 }
@@ -107,7 +114,7 @@ img {
 .hero-media img {
   border-radius: 18px;
   box-shadow: var(--shadow);
-  border: 1px solid rgba(110, 80, 40, 0.15);
+  border: 1px solid var(--image-border);
 }
 
 .hero-actions {
@@ -231,7 +238,8 @@ textarea {
   border-radius: 10px;
   padding: 0.7rem 0.8rem;
   font: inherit;
-  background: #fff;
+  background: var(--input-bg);
+  color: var(--text);
 }
 
 .total {
@@ -253,7 +261,7 @@ textarea {
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: 14px;
-  border: 1px solid rgba(110, 80, 40, 0.15);
+  border: 1px solid var(--image-border);
 }
 
 .site-footer {
@@ -288,6 +296,29 @@ textarea {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111417;
+    --surface: #1b2126;
+    --text: #edf1e6;
+    --muted: #b8c2b3;
+    --accent: #5f9f75;
+    --accent-strong: #4d8862;
+    --border: #2b343c;
+    --shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+    --bg-grad-one: #223127;
+    --bg-grad-two: #2b2a22;
+    --shape-one: #23362a;
+    --shape-two: #2d3025;
+    --input-bg: #151b1f;
+    --image-border: rgba(214, 224, 203, 0.2);
+  }
+
+  .features article {
+    background: color-mix(in srgb, var(--surface) 92%, black 8%);
   }
 }
 
