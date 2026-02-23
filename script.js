@@ -15,7 +15,7 @@ function formatUSD(cents) {
 }
 
 function updateTotal() {
-  const unitPrice = Number(unitPriceEl.dataset.priceCents || 14900);
+  const unitPrice = Number(unitPriceEl.dataset.priceCents || 9500);
   const quantity = Number(quantitySelect.value || 1);
   const total = unitPrice * quantity;
 
