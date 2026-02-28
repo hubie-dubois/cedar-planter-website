@@ -177,6 +177,16 @@
             <input type="hidden" id="estimated-total-field" name="estimated_total" value="$95.00" />
             <input type="hidden" id="delivery-fee-field" name="delivery_fee" value="$0.00" />
             <input type="hidden" id="stripe-link-field" name="stripe_checkout_link" value="" />
+            <div class="hp-field" aria-hidden="true">
+              <label for="company-website">Leave this field empty</label>
+              <input
+                id="company-website"
+                type="text"
+                name="_gotcha"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
 
             <button class="btn btn-primary" type="submit">Submit Order &amp; Continue To Payment</button>
             <p class="small-note">After you submit, Stripe Checkout opens in the same tab.</p>
