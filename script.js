@@ -173,14 +173,6 @@ function updateFulfillmentFields() {
   updateTotal();
 }
 
-function resetFormAfterCustomSubmit() {
-  orderForm.reset();
-  applyLeadTimeDate();
-  handlePhoneInput();
-  updateFulfillmentFields();
-  formStatus.textContent = "";
-}
-
 async function submitOrderAndRedirect(event) {
   event.preventDefault();
   if (!orderForm.reportValidity()) return;
@@ -228,7 +220,7 @@ async function submitOrderAndRedirect(event) {
       "Thank you for your order request. I will contact you to gather a few details and send the appropriate payment link.";
     formStatus.textContent = customMessage;
     window.alert(customMessage);
-    resetFormAfterCustomSubmit();
+    window.location.reload();
     return;
   }
 

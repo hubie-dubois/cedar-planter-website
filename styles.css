@@ -306,6 +306,10 @@ img {
   overflow: hidden;
 }
 
+.captcha-wrap {
+  margin-top: 0.25rem;
+}
+
 label {
   font-weight: 600;
   margin-top: 0.2rem;

@@ -33,7 +33,7 @@
 - For `5+`:
   - Form submits to Formspree.
   - Customer sees confirmation popup message.
-  - Form resets.
+  - After closing popup, page reloads to clear form.
   - Owner follows up with custom payment link.
 
 ## Form Submission
@@ -41,6 +41,10 @@
   - `https://formspree.io/f/mlgwvadb`
 - Honeypot spam field added:
   - `_gotcha`
+- Turnstile CAPTCHA added to form:
+  - Cloudflare Turnstile script + widget rendered in order form.
+  - Site key currently configured in `index.html`.
+  - Secret key should remain only in Formspree settings.
 
 ## Map
 - Leaflet map shown in order summary.
@@ -63,4 +67,4 @@
 
 ## Notes For Next Session
 - If requested, add this context file to README and keep it updated after major changes.
-- Consider adding hCaptcha/Turnstile in Formspree if spam continues.
+- Turnstile is the chosen CAPTCHA and is wired in the page.
