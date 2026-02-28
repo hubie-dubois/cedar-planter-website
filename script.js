@@ -17,6 +17,7 @@ const neededByInput = document.getElementById("needed-by");
 const deliveryMapEl = document.getElementById("delivery-map");
 const yearEl = document.getElementById("year");
 const DELIVERY_FEE_CENTS = 1000;
+let deliveryMapInitialized = false;
 
 // Replace delivery links with your Stripe payment links that include the $10 delivery fee.
 const STRIPE_PAYMENT_LINKS = {
@@ -77,7 +78,7 @@ function handlePhoneInput() {
 }
 
 function initDeliveryMap() {
-  if (!deliveryMapEl || typeof L === "undefined") return;
+  if (deliveryMapInitialized || !deliveryMapEl || typeof L === "undefined") return;
 
   const paxtonLatLng = [40.4592, -88.0956];
   const deliveryRadiusMeters = 25 * 1609.34;
@@ -97,6 +98,17 @@ function initDeliveryMap() {
 
   L.marker(paxtonLatLng).addTo(map).bindPopup("Paxton, IL");
   map.fitBounds(circle.getBounds(), { padding: [20, 20] });
+  deliveryMapInitialized = true;
+}
+
+function tryInitDeliveryMap(retries = 12) {
+  if (deliveryMapInitialized) return;
+  if (typeof L !== "undefined") {
+    initDeliveryMap();
+    return;
+  }
+  if (retries <= 0) return;
+  window.setTimeout(() => tryInitDeliveryMap(retries - 1), 250);
 }
 
 function getSelectedStripeLink() {
@@ -189,5 +201,6 @@ if (orderForm) {
   updateFulfillmentFields();
 }
 
-initDeliveryMap();
+tryInitDeliveryMap();
+window.addEventListener("load", () => tryInitDeliveryMap());
 yearEl.textContent = new Date().getFullYear();
