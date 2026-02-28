@@ -8,6 +8,7 @@ const deliveryFeeEl = document.getElementById("delivery-fee");
 const checkoutNote = document.getElementById("checkout-note");
 const stripeLinkField = document.getElementById("stripe-link-field");
 const formStatus = document.getElementById("form-status");
+const fulfillmentContactNote = document.getElementById("fulfillment-contact-note");
 const deliveryFields = document.getElementById("delivery-fields");
 const deliveryAddress = document.getElementById("delivery-address");
 const deliveryCity = document.getElementById("delivery-city");
@@ -17,6 +18,7 @@ const neededByInput = document.getElementById("needed-by");
 const deliveryMapEl = document.getElementById("delivery-map");
 const yearEl = document.getElementById("year");
 const DELIVERY_FEE_CENTS = 1000;
+const CUSTOM_QUANTITY_VALUE = "5plus";
 let deliveryMapInitialized = false;
 
 // Replace delivery links with your Stripe payment links that include the $10 delivery fee.
@@ -44,6 +46,15 @@ function formatUSD(cents) {
 
 function getFulfillmentMethod() {
   return orderForm.querySelector("input[name='fulfillment_method']:checked")?.value || "pickup";
+}
+
+function isCustomQuantitySelection() {
+  return quantitySelect.value === CUSTOM_QUANTITY_VALUE;
+}
+
+function getQuantityForPricing() {
+  if (isCustomQuantitySelection()) return 5;
+  return Number(quantitySelect.value || 1);
 }
 
 function formatDateAsLocalISO(date) {
@@ -112,8 +123,9 @@ function tryInitDeliveryMap(retries = 12) {
 }
 
 function getSelectedStripeLink() {
+  if (isCustomQuantitySelection()) return "";
   const fulfillmentMethod = getFulfillmentMethod();
-  const quantity = Number(quantitySelect.value || 1);
+  const quantity = getQuantityForPricing();
   const linksByMethod = STRIPE_PAYMENT_LINKS[fulfillmentMethod] || STRIPE_PAYMENT_LINKS.pickup;
   const selectedLink = linksByMethod[quantity];
   return selectedLink && selectedLink.startsWith("https://") ? selectedLink : "";
@@ -121,19 +133,24 @@ function getSelectedStripeLink() {
 
 function updateTotal() {
   const unitPrice = Number(unitPriceEl.dataset.priceCents || 9500);
-  const quantity = Number(quantitySelect.value || 1);
+  const quantity = getQuantityForPricing();
+  const isCustomQuantity = isCustomQuantitySelection();
   const isDelivery = getFulfillmentMethod() === "delivery";
   const deliveryFee = isDelivery ? DELIVERY_FEE_CENTS : 0;
   const total = unitPrice * quantity + deliveryFee;
   const selectedLink = getSelectedStripeLink();
 
-  estimatedTotal.textContent = formatUSD(total);
+  estimatedTotal.textContent = isCustomQuantity ? `${formatUSD(total)}+` : formatUSD(total);
   deliveryFeeEl.textContent = formatUSD(deliveryFee);
-  estimatedTotalField.value = formatUSD(total);
+  estimatedTotalField.value = isCustomQuantity
+    ? `${formatUSD(total)}+ (minimum for 5+ planters)`
+    : formatUSD(total);
   deliveryFeeField.value = formatUSD(deliveryFee);
   stripeLinkField.value = selectedLink;
 
-  if (selectedLink) {
+  if (isCustomQuantity) {
+    checkoutNote.textContent = "For 5+ planters, submit this request and I will contact you to confirm order details and send the appropriate payment link.";
+  } else if (selectedLink) {
     checkoutNote.textContent = `Payment link will open for ${quantity} planter${quantity > 1 ? "s" : ""}${isDelivery ? " with delivery" : ""}.`;
   } else {
     checkoutNote.textContent = "Add your delivery Stripe links in script.js before using delivery checkout.";
@@ -148,7 +165,20 @@ function updateFulfillmentFields() {
   deliveryAddress.required = isDelivery;
   deliveryCity.required = isDelivery;
   deliveryZip.required = isDelivery;
+  if (fulfillmentContactNote) {
+    fulfillmentContactNote.textContent = isDelivery
+      ? "Delivery orders are confirmed after submission and payment."
+      : "For pickup orders, I will contact you shortly with pickup location details in Paxton.";
+  }
   updateTotal();
+}
+
+function resetFormAfterCustomSubmit() {
+  orderForm.reset();
+  applyLeadTimeDate();
+  handlePhoneInput();
+  updateFulfillmentFields();
+  formStatus.textContent = "";
 }
 
 async function submitOrderAndRedirect(event) {
@@ -156,8 +186,9 @@ async function submitOrderAndRedirect(event) {
   if (!orderForm.reportValidity()) return;
 
   updateTotal();
+  const isCustomQuantity = isCustomQuantitySelection();
   const selectedLink = getSelectedStripeLink();
-  if (!selectedLink) {
+  if (!isCustomQuantity && !selectedLink) {
     formStatus.textContent = "Delivery payment links are not set yet. Please update script.js first.";
     return;
   }
@@ -165,6 +196,7 @@ async function submitOrderAndRedirect(event) {
 
   const formAction = orderForm.action;
   const formData = new FormData(orderForm);
+  let submissionSucceeded = true;
 
   if (formAction && !formAction.includes("your-form-id")) {
     try {
@@ -177,11 +209,27 @@ async function submitOrderAndRedirect(event) {
       });
 
       if (!response.ok) {
+        submissionSucceeded = false;
         console.error("Order form submission did not return OK:", response.status);
       }
     } catch (error) {
+      submissionSucceeded = false;
       console.error("Order form submission failed:", error);
     }
+  }
+
+  if (!submissionSucceeded) {
+    formStatus.textContent = "There was a problem submitting your order. Please try again.";
+    return;
+  }
+
+  if (isCustomQuantity) {
+    const customMessage =
+      "Thank you for your order request. I will contact you to gather a few details and send the appropriate payment link.";
+    formStatus.textContent = customMessage;
+    window.alert(customMessage);
+    resetFormAfterCustomSubmit();
+    return;
   }
 
   formStatus.textContent = "Opening Stripe Checkout...";
