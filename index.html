@@ -7,13 +7,19 @@
     <title>Cedar Planter Co. | Handmade Cedar Planter Boxes</title>
     <meta
       name="description"
-      content="Shop handcrafted cedar planter boxes built for beauty, drainage, and long outdoor life. Order online and pay securely."
+      content="Order handcrafted cedar planter boxes built for beauty, drainage, and long outdoor life."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -36,14 +42,14 @@
             looks great from day one and seasons beautifully over time.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#order">Buy A Planter</a>
+            <a class="btn btn-primary" href="#order">Start Order</a>
             <a class="btn btn-secondary" href="#gallery">View Gallery</a>
           </div>
         </div>
         <div class="hero-media">
           <img
-            src="assets/images/hero-planter.jpeg"
-            alt="Cedar planter box outdoors with a tomato plant"
+            src="Images/IMG_0437.jpeg"
+            alt="Pair of cedar planter boxes styled on a backyard patio"
           />
         </div>
       </section>
@@ -74,82 +80,133 @@
 
       <section class="product section reveal" id="order">
         <div class="product-card">
-          <p class="eyebrow">Featured Product</p>
-          <h2>Classic Cedar Planter Box</h2>
-          <p class="spec">Approx. 18&quot; x 18&quot; x 18&quot;</p>
+          <p class="eyebrow">Order Form</p>
+          <h2>Classic Cedar Planter Box Order</h2>
           <p>
             Includes heavy-duty liner and drainage-ready interior. Great for tomatoes,
             peppers, herbs, and annuals.
           </p>
+          <form
+            id="order-form"
+            class="order-form"
+            action="https://formspree.io/f/mlgwvadb"
+            method="POST"
+          >
+            <div class="field-row">
+              <div>
+                <label for="full-name">Full name</label>
+                <input id="full-name" name="full_name" type="text" autocomplete="name" required />
+              </div>
+              <div>
+                <label for="phone">Phone</label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  autocomplete="tel"
+                  inputmode="numeric"
+                  maxlength="14"
+                  placeholder="(217) 555-1234"
+                  pattern="^\(\d{3}\)\s\d{3}-\d{4}$"
+                  title="Use a 10-digit phone number."
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div>
+                <label for="preferred-contact">Preferred contact method</label>
+                <select id="preferred-contact" name="preferred_contact" required>
+                  <option value="">Select one</option>
+                  <option value="phone">Phone call</option>
+                  <option value="text">Text message</option>
+                  <option value="email">Email</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div>
+                <label for="quantity">Quantity of planter boxes</label>
+                <select id="quantity" name="quantity" required>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </div>
+              <div>
+                <label for="needed-by">Needed by (optional)</label>
+                <input id="needed-by" name="needed_by" type="date" />
+              </div>
+            </div>
+
+            <fieldset class="radio-group">
+              <legend>How would you like to receive your order?</legend>
+              <label><input type="radio" name="fulfillment_method" value="pickup" checked required /> Pickup in Paxton</label>
+              <label><input type="radio" name="fulfillment_method" value="delivery" /> Delivery (within 25 miles of Paxton, IL)</label>
+            </fieldset>
+
+            <div id="delivery-fields" class="delivery-fields" hidden>
+              <label for="delivery-address">Delivery street address</label>
+              <input id="delivery-address" name="delivery_address" type="text" autocomplete="street-address" />
+
+              <div class="field-row">
+                <div>
+                  <label for="delivery-city">City</label>
+                  <input id="delivery-city" name="delivery_city" type="text" autocomplete="address-level2" />
+                </div>
+                <div>
+                  <label for="delivery-zip">ZIP code</label>
+                  <input id="delivery-zip" name="delivery_zip" type="text" inputmode="numeric" autocomplete="postal-code" />
+                </div>
+              </div>
+            </div>
+
+            <label for="order-notes">Order notes (optional)</label>
+            <textarea
+              id="order-notes"
+              name="order_notes"
+              rows="4"
+              placeholder="Best time to reach you, special requests, gate code, etc."
+            ></textarea>
+
+            <input type="hidden" id="estimated-total-field" name="estimated_total" value="$95.00" />
+            <input type="hidden" id="delivery-fee-field" name="delivery_fee" value="$0.00" />
+            <input type="hidden" id="stripe-link-field" name="stripe_checkout_link" value="" />
+
+            <button class="btn btn-primary" type="submit">Submit Order &amp; Continue To Payment</button>
+            <p class="small-note">After you submit, Stripe Checkout opens in the same tab.</p>
+            <p class="small-note" id="form-status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <aside class="order-summary">
+          <h3>Order Summary</h3>
           <div class="price-row">
             <p class="price" id="unit-price" data-price-cents="9500">$95</p>
             <p class="price-note">Per planter</p>
           </div>
-
-          <form id="checkout-form" class="checkout-form">
-            <label for="quantity">Quantity</label>
-            <select id="quantity" name="quantity">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-            </select>
-
-            <p class="total">Estimated total: <strong id="estimated-total">$95</strong></p>
-
-            <a
-              id="pay-link"
-              class="btn btn-primary"
-              href="https://buy.stripe.com/dRm14o9Qa3zf8ULgERbMQ00"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Pay Securely
-            </a>
-            <p class="small-note">
-              Secure payment powered by Stripe Checkout.
-            </p>
-            <p class="small-note" id="checkout-note">
-              Checkout will open for 1 planter.
-            </p>
-          </form>
-
+          <p class="fee-line">Delivery fee: <strong id="delivery-fee">$0</strong></p>
+          <p class="total">Estimated total: <strong id="estimated-total">$95</strong></p>
+          <p class="small-note" id="checkout-note">
+            Payment link will open for 1 planter.
+          </p>
           <div class="fulfillment-note" aria-label="Delivery and pickup policy">
             <p>
-              <strong>Delivery & Pickup:</strong> Planters are crafted in Paxton, Illinois.
-              I do not offer shipping. Orders are pickup only or local delivery in the
-              Paxton area.
+              <strong>Pickup &amp; Delivery:</strong> Planters are built in Paxton, Illinois.
+              Pickup is in Paxton, or delivery is available within 25 miles of Paxton.
             </p>
           </div>
-        </div>
-
-        <aside class="custom-order">
-          <h3>Need a custom size?</h3>
-          <p>
-            Submit your request and I will follow up with pricing and lead time.
-          </p>
-          <form
-            action="https://formspree.io/f/your-form-id"
-            method="POST"
-            class="custom-form"
-          >
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" required />
-
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required />
-
-            <label for="details">Project details</label>
-            <textarea
-              id="details"
-              name="details"
-              rows="4"
-              placeholder="Dimensions, quantity, delivery ZIP, etc."
-              required
-            ></textarea>
-
-            <button class="btn btn-secondary" type="submit">Send Request</button>
-          </form>
+          <div class="delivery-map-wrap">
+            <p class="map-label">Delivery Radius: 25 miles from Paxton, IL</p>
+            <div id="delivery-map" class="delivery-map" aria-label="Delivery radius map centered on Paxton, Illinois"></div>
+          </div>
         </aside>
       </section>
 
@@ -159,9 +216,14 @@
           <h2>From workshop to backyard</h2>
         </div>
         <div class="grid">
-          <img src="assets/images/gallery-side.jpeg" alt="Side view of cedar planter with tomato plant" />
-          <img src="assets/images/gallery-angle.jpeg" alt="Angle view of cedar planter on deck" />
-          <img src="assets/images/gallery-workshop.jpeg" alt="Cedar planter in workshop before finishing" />
+          <img src="Images/IMG_0929.jpeg" alt="Cedar planter with flowers near front entry walkway" />
+          <img src="Images/IMG_0928.jpeg" alt="Front angle of cedar planter with flowers and watering can" />
+          <img src="Images/123_1 (1).jpeg" alt="Cedar planter on a deck with a tomato plant and support cage" />
+          <img src="Images/IMG_0681.jpeg" alt="Handmade cedar planter in the workshop during build process" />
+          <img src="Images/IMG_0692.jpeg" alt="Finished cedar planter from side angle in workshop" />
+          <img src="Images/IMG_2574.jpeg" alt="Two cedar planter boxes side by side in workshop" />
+          <img src="Images/IMG_2575.jpeg" alt="Drainage hole detail inside cedar planter box" />
+          <img src="Images/IMG_0690.jpeg" alt="Front profile of completed cedar planter in workshop" />
         </div>
       </section>
     </main>
@@ -169,7 +231,11 @@
     <footer class="site-footer">
       <p>&copy; <span id="year"></span> Cedar Planter Co. All rights reserved.</p>
     </footer>
-
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>
