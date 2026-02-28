@@ -92,7 +92,7 @@ function initDeliveryMap() {
   if (deliveryMapInitialized || !deliveryMapEl || typeof L === "undefined") return;
 
   const paxtonLatLng = [40.4592, -88.0956];
-  const deliveryRadiusMeters = 25 * 1609.34;
+  const deliveryRadiusMeters = 30 * 1609.34;
   const map = L.map("delivery-map").setView(paxtonLatLng, 10);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
