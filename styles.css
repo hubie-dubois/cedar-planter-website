@@ -182,6 +182,23 @@ img {
   color: var(--text);
 }
 
+.contact-link {
+  color: var(--accent-strong);
+  font-weight: 600;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.15em;
+}
+
+.contact-link:hover {
+  color: var(--accent);
+}
+
+.contact-link:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 45%, white 55%);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 .features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -385,6 +402,11 @@ textarea {
 }
 
 .site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
   padding-bottom: 1.5rem;
   color: var(--muted);
   font-size: 0.9rem;
@@ -464,6 +486,11 @@ textarea {
 }
 
 @media (max-width: 560px) {
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .grid {
     grid-template-columns: 1fr;
   }
