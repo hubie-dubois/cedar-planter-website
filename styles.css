@@ -212,6 +212,22 @@ img {
   padding: 1rem;
 }
 
+.custom-orders-card {
+  background: color-mix(in srgb, var(--surface) 92%, white 8%);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.custom-orders-card p {
+  margin: 0.35rem 0 0;
+}
+
+.custom-orders-card .small-note {
+  margin-top: 0.85rem;
+}
+
 .features h2 {
   font-family: "Fraunces", serif;
   font-size: 1.1rem;
@@ -428,6 +444,10 @@ textarea {
 
 .product.reveal {
   animation-delay: 220ms;
+}
+
+.custom-orders.reveal {
+  animation-delay: 180ms;
 }
 
 .gallery.reveal {
