@@ -3,16 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f5f3ea" />
     <title>Cedar Planter Co. | Handmade Cedar Planter Boxes</title>
     <meta
       name="description"
-      content="Order handcrafted cedar planter boxes built for beauty, drainage, and long outdoor life."
+      content="Order handcrafted cedar planter boxes built in Paxton, Illinois for patios, porches, gardens, and backyard growing."
     />
+    <meta property="og:title" content="Cedar Planter Co. | Handmade Cedar Planter Boxes" />
+    <meta
+      property="og:description"
+      content="Premium cedar planter boxes handmade for outdoor life, with pickup in Paxton and delivery within 30 miles."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://planters.hubiedubois.com/" />
+    <meta property="og:image" content="https://planters.hubiedubois.com/Images/optimized/IMG_0437-1150.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://unpkg.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap"
       rel="stylesheet"
     />
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -24,92 +33,243 @@
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8f26e62fae5c4f97bddd6606714b7ab3"}'></script><!-- End Cloudflare Web Analytics -->
   </head>
   <body>
-    <div class="bg-shape bg-shape-one"></div>
-    <div class="bg-shape bg-shape-two"></div>
+    <a class="skip-link" href="#order">Skip to order form</a>
 
     <header class="site-header">
-      <div class="brand">Cedar Planter Co.</div>
-      <a class="header-cta" href="#order">Order Now</a>
+      <a class="brand" href="#top" aria-label="Cedar Planter Co. home">
+        <span>Cedar Planter Co.</span>
+        <small>Paxton, IL</small>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#details">Details</a>
+        <a href="#gallery">Gallery</a>
+        <a class="header-cta" href="#order">Order</a>
+      </nav>
     </header>
 
-    <main>
-      <section class="hero section reveal">
-        <div class="hero-copy">
-          <p class="eyebrow">Handmade. Solid Cedar. Built To Last.</p>
-          <h1>Premium cedar planter boxes for patios, porches, and backyards.</h1>
-          <p class="lead">
-            Each box is handcrafted with quality joinery and a timeless profile that
-            looks great from day one and seasons beautifully over time. Orders
-            typically require at least a 3-day lead time, with larger quantities
-            needing additional build time.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#order">Start Order</a>
-            <a class="btn btn-secondary" href="#gallery">View Gallery</a>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img
+          class="hero-image"
+          src="Images/optimized/IMG_0437-1150.jpg"
+          srcset="Images/optimized/IMG_0437-720.jpg 720w, Images/optimized/IMG_0437-1150.jpg 1150w"
+          sizes="100vw"
+          width="1150"
+          height="905"
+          alt="Cedar planter boxes arranged on a sunny backyard patio"
+          fetchpriority="high"
+        />
+        <div class="hero-scrim" aria-hidden="true"></div>
+        <div class="hero-inner section">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Handmade cedar planters in Paxton, Illinois</p>
+            <h1 id="hero-title">Handmade cedar planter boxes</h1>
+            <p class="lead">
+              Premium outdoor planter boxes built one at a time for patios,
+              porches, decks, and backyard growing. Natural cedar, sturdy
+              joinery, and a clean profile that looks finished the day it lands.
+            </p>
+            <div class="hero-actions" aria-label="Primary actions">
+              <a class="btn btn-primary" href="#order">Start an order</a>
+              <a class="btn btn-secondary" href="#gallery">See the build</a>
+            </div>
           </div>
-        </div>
-        <div class="hero-media">
-          <img
-            src="Images/IMG_0437.jpg"
-            alt="Pair of cedar planter boxes styled on a backyard patio"
-          />
+
+          <div class="hero-facts reveal" aria-label="Planter ordering facts">
+            <div>
+              <span class="fact-label">From</span>
+              <strong>$95</strong>
+            </div>
+            <div>
+              <span class="fact-label">Lead time</span>
+              <strong>3+ days</strong>
+            </div>
+            <div>
+              <span class="fact-label">Fulfillment</span>
+              <strong>Pickup or 30-mile delivery</strong>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="features section reveal">
-        <article>
-          <h2>Built for real growing</h2>
+      <section class="commerce-rail section reveal" aria-label="Planter order highlights">
+        <div>
+          <span class="rail-label">Solid cedar</span>
+          <strong>Built for real soil, sun, water, and seasons.</strong>
+        </div>
+        <div>
+          <span class="rail-label">Transparent total</span>
+          <strong>Quantity and delivery update before checkout.</strong>
+        </div>
+        <div>
+          <span class="rail-label">Custom work</span>
+          <strong>Bulk orders and special sizes start by email.</strong>
+        </div>
+      </section>
+
+      <section class="product-story section reveal" id="details">
+        <div class="story-copy">
+          <p class="eyebrow">Outdoor-ready construction</p>
+          <h2>Planters with furniture-level presence.</h2>
           <p>
-            Sized for herbs, flowers, and vegetables with room for strong root
-            development.
+            These boxes are made to feel substantial on a front porch, deck, or
+            patio. Cedar keeps the weight manageable while naturally resisting
+            outdoor wear, and the clean panel layout lets flowers, herbs, and
+            vegetables stay the focus.
           </p>
-        </article>
-        <article>
-          <h2>Natural cedar durability</h2>
-          <p>
-            Cedar naturally resists decay and outdoor wear, making it ideal for
-            long-term planters.
-          </p>
-        </article>
-        <article>
-          <h2>Handmade quality</h2>
-          <p>
-            Every planter is hand-built one at a time, so you get craftsmanship
-            instead of mass production.
-          </p>
-        </article>
+          <div class="material-list" aria-label="Product details">
+            <div>
+              <span>01</span>
+              <p>Room for strong root development and seasonal planting.</p>
+            </div>
+            <div>
+              <span>02</span>
+              <p>Hand-built in small batches instead of factory assembled.</p>
+            </div>
+            <div>
+              <span>03</span>
+              <p>Simple pickup in Paxton or delivery within 30 miles.</p>
+            </div>
+          </div>
+        </div>
+        <div class="story-specs" aria-label="Why these cedar planters work well">
+          <div>
+            <span>What fits inside</span>
+            <strong>Built for real planting depth.</strong>
+            <p>Interior planting space is approximately 15 in. x 15 in. x 15 in. tall for herbs, flowers, peppers, tomatoes, or seasonal porch color.</p>
+          </div>
+          <div>
+            <span>Why cedar</span>
+            <strong>Warm wood that belongs outside.</strong>
+            <p>Cedar keeps the planter sturdy and manageable while naturally resisting outdoor wear better than ordinary lumber.</p>
+          </div>
+          <div>
+            <span>How it is built</span>
+            <strong>Clean enough for the front porch.</strong>
+            <p>The panel profile, sturdy joinery, and drainage-ready construction are meant to look finished from every angle.</p>
+          </div>
+          <div>
+            <span>How ordering works</span>
+            <strong>Fast checkout or a custom quote.</strong>
+            <p>Order 1-4 planters with the form below. Choose 5+ for bulk or custom work and I will confirm details first.</p>
+          </div>
+        </div>
       </section>
 
       <section class="custom-orders section reveal">
-        <div class="custom-orders-card">
+        <div>
           <p class="eyebrow">Custom Orders</p>
           <h2>Need a different size or a larger quantity?</h2>
+        </div>
+        <div class="custom-copy">
           <p>
-            For custom planter orders, bulk quantities, or special requests, email
+            For custom planter orders, bulk quantities, or special requests,
+            email
             <a class="contact-link" href="mailto:contact@hubiedubois.com">contact@hubiedubois.com</a>.
-            We can talk through sizing, quantity, and timing before you place your order.
+            We can talk through sizing, quantity, and timing before you place an order.
           </p>
           <p class="small-note">
-            Standard orders usually require a minimum 3-day lead time. Larger or custom
-            orders may require longer depending on quantity and build details.
+            Standard orders usually require a minimum 3-day lead time. Larger
+            or custom orders may require longer depending on quantity and build details.
           </p>
         </div>
       </section>
 
-      <section class="product section reveal" id="order">
-        <div class="product-card">
-          <p class="eyebrow">Order Form</p>
-          <h2>Classic Cedar Planter Box Order</h2>
+      <section class="spec-sheet section reveal" aria-labelledby="spec-title">
+        <div class="spec-heading">
+          <p class="eyebrow">Planter Specs</p>
+          <h2 id="spec-title">Measure before you order.</h2>
           <p>
-            Great for tomatoes, peppers, herbs, and annuals. Please allow at least
-            3 days for standard orders, with more time needed for larger quantities.
+            These details help you confirm fit, planting space, and fulfillment
+            before moving into checkout.
           </p>
+        </div>
+        <div class="spec-grid">
+          <div>
+            <span>Interior</span>
+            <strong>15 in. x 15 in. x 15 in. tall</strong>
+            <p>Approximate inside planting space.</p>
+          </div>
+          <div>
+            <span>Exterior</span>
+            <strong>Exterior dimensions coming soon</strong>
+            <p>Placeholder for final outside measurements.</p>
+          </div>
+          <div>
+            <span>Taper</span>
+            <strong>8-degree taper on all sides</strong>
+            <p>Gives the box its finished, furniture-like profile.</p>
+          </div>
+          <div>
+            <span>Drainage</span>
+            <strong>Drainage-ready construction</strong>
+            <p>Built for outdoor planting and regular watering.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="order-section section reveal" id="order" aria-labelledby="order-title">
+        <div class="order-intro">
+          <p class="eyebrow">Order Form</p>
+          <h2 id="order-title">Start a cedar planter order.</h2>
+          <p>
+            Choose quantity, pickup or delivery, and your best contact method.
+            After the form is submitted, Stripe Checkout opens in this same tab
+            for standard 1-4 planter orders.
+          </p>
+        </div>
+
+        <div class="order-layout">
           <form
             id="order-form"
-            class="order-form"
+            class="order-form order-panel"
             action="https://formspree.io/f/mlgwvadb"
             method="POST"
           >
+            <fieldset class="choice-grid quantity-picker">
+              <legend>Quantity</legend>
+              <label>
+                <input type="radio" name="quantity" value="1" checked required />
+                <span>1</span>
+                <small>$95</small>
+              </label>
+              <label>
+                <input type="radio" name="quantity" value="2" required />
+                <span>2</span>
+                <small>$190</small>
+              </label>
+              <label>
+                <input type="radio" name="quantity" value="3" required />
+                <span>3</span>
+                <small>$285</small>
+              </label>
+              <label>
+                <input type="radio" name="quantity" value="4" required />
+                <span>4</span>
+                <small>$380</small>
+              </label>
+              <label>
+                <input type="radio" name="quantity" value="5plus" required />
+                <span>5+</span>
+                <small>Quote</small>
+              </label>
+            </fieldset>
+
+            <fieldset class="choice-grid fulfillment-picker">
+              <legend>Fulfillment</legend>
+              <label>
+                <input type="radio" name="fulfillment_method" value="pickup" checked required />
+                <span>Pickup</span>
+                <small>Paxton</small>
+              </label>
+              <label>
+                <input type="radio" name="fulfillment_method" value="delivery" required />
+                <span>Delivery</span>
+                <small>+$10 within 30 miles</small>
+              </label>
+            </fieldset>
+            <p class="small-note" id="fulfillment-contact-note" aria-live="polite"></p>
+
             <div class="field-row">
               <div>
                 <label for="full-name">Full name</label>
@@ -150,27 +310,19 @@
 
             <div class="field-row">
               <div>
-                <label for="quantity">Quantity of planter boxes</label>
-                <select id="quantity" name="quantity" required>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5plus">5+</option>
-                </select>
-              </div>
-              <div>
-                <label for="needed-by">Needed by (optional)</label>
+                <label for="needed-by">Needed by</label>
                 <input id="needed-by" name="needed_by" type="date" />
               </div>
+              <div>
+                <label for="order-notes">Order notes</label>
+                <textarea
+                  id="order-notes"
+                  name="order_notes"
+                  rows="3"
+                  placeholder="Best time to reach you, special requests, gate code, etc."
+                ></textarea>
+              </div>
             </div>
-
-            <fieldset class="radio-group">
-              <legend>How would you like to receive your order?</legend>
-              <label><input type="radio" name="fulfillment_method" value="pickup" checked required /> Pickup in Paxton</label>
-              <label><input type="radio" name="fulfillment_method" value="delivery" /> Delivery (within 30 miles of Paxton, IL)</label>
-            </fieldset>
-            <p class="small-note" id="fulfillment-contact-note" aria-live="polite"></p>
 
             <div id="delivery-fields" class="delivery-fields" hidden>
               <label for="delivery-address">Delivery street address</label>
@@ -188,16 +340,8 @@
               </div>
             </div>
 
-            <label for="order-notes">Order notes (optional)</label>
-            <textarea
-              id="order-notes"
-              name="order_notes"
-              rows="4"
-              placeholder="Best time to reach you, special requests, gate code, etc."
-            ></textarea>
-
-            <input type="hidden" id="estimated-total-field" name="estimated_total" value="$95.00" />
-            <input type="hidden" id="delivery-fee-field" name="delivery_fee" value="$0.00" />
+            <input type="hidden" id="estimated-total-field" name="estimated_total" value="$95" />
+            <input type="hidden" id="delivery-fee-field" name="delivery_fee" value="$0" />
             <input type="hidden" id="stripe-link-field" name="stripe_checkout_link" value="" />
             <div class="hp-field" aria-hidden="true">
               <label for="company-website">Leave this field empty</label>
@@ -213,68 +357,194 @@
               <div class="cf-turnstile" data-sitekey="0x4AAAAAACjpNmIVXg-zy-LV"></div>
             </div>
 
-            <button class="btn btn-primary" type="submit">Submit Order &amp; Continue To Payment</button>
-            <p class="small-note">After you submit, Stripe Checkout opens in the same tab.</p>
+            <button class="btn btn-primary submit-button" id="submit-button" type="submit">
+              Submit order and continue to payment
+            </button>
+            <p class="small-note" id="draft-status" aria-live="polite">
+              Your order draft saves on this device while you checkout.
+            </p>
             <p class="small-note" id="form-status" aria-live="polite"></p>
           </form>
-        </div>
 
-        <aside class="order-summary">
-          <h3>Order Summary</h3>
-          <div class="price-row">
-            <p class="price" id="unit-price" data-price-cents="9500">$95</p>
-            <p class="price-note">Per planter</p>
-          </div>
-          <p class="fee-line">Delivery fee: <strong id="delivery-fee">$0</strong></p>
-          <p class="total">Estimated total: <strong id="estimated-total">$95</strong></p>
-          <p class="small-note" id="checkout-note">
-            Payment link will open for 1 planter.
-          </p>
-          <div class="fulfillment-note" aria-label="Delivery and pickup policy">
-            <p>
-              <strong>Pickup &amp; Delivery:</strong> Planters are built in Paxton, Illinois.
-              Pickup is in Paxton, or delivery is available within 30 miles of Paxton.
+          <aside class="order-summary order-panel" aria-label="Estimated order total">
+            <div class="summary-topline">
+              <p class="eyebrow">Live Summary</p>
+              <p class="price" id="unit-price" data-price-cents="9500">$95</p>
+              <p class="price-note">per planter</p>
+            </div>
+            <div class="summary-lines">
+              <p>Delivery fee <strong id="delivery-fee">$0</strong></p>
+              <p>Estimated total <strong id="estimated-total">$95</strong></p>
+            </div>
+            <p class="small-note" id="checkout-note">
+              Payment link will open for 1 planter.
             </p>
-            <p>
-              <strong>Lead Time:</strong> Orders generally require at least 3 days to build.
-              Larger quantity orders may require additional lead time.
-            </p>
-          </div>
-          <div class="delivery-map-wrap">
-            <p class="map-label">Delivery Radius: 30 miles from Paxton, IL</p>
-            <div id="delivery-map" class="delivery-map" aria-label="Delivery radius map centered on Paxton, Illinois"></div>
-          </div>
-        </aside>
+            <div class="fulfillment-note" aria-label="Delivery and pickup policy">
+              <p>
+                <strong>Pickup:</strong> Pickup details are shared after the
+                order is submitted.
+              </p>
+              <p>
+                <strong>Delivery:</strong> Delivery is available within 30 miles
+                of Paxton, Illinois.
+              </p>
+              <p>
+                <strong>Lead time:</strong> Standard orders generally require
+                at least 3 days to build.
+              </p>
+            </div>
+            <div class="delivery-map-wrap">
+              <p class="map-label">Delivery radius from Paxton, IL</p>
+              <div id="delivery-map" class="delivery-map" aria-label="Delivery radius map centered on Paxton, Illinois">
+                <p class="map-fallback">Loading delivery map...</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="faq-section section reveal" aria-labelledby="faq-title">
+        <div class="faq-heading">
+          <p class="eyebrow">Ordering Details</p>
+          <h2 id="faq-title">Simple policies before checkout.</h2>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>How long does an order take?</summary>
+            <p>Standard orders require at least 3 days to build. Larger quantities or custom requests may need more time, and timing is confirmed after submission.</p>
+          </details>
+          <details>
+            <summary>Where is pickup?</summary>
+            <p>Pickup is in Paxton, Illinois. Pickup details are shared after the order is submitted and payment is complete.</p>
+          </details>
+          <details>
+            <summary>How does delivery work?</summary>
+            <p>Delivery is available within 30 miles of Paxton for the listed delivery fee. Use the integrated delivery radius map in the order summary to check the general service area. Delivery timing is coordinated after the order is submitted.</p>
+          </details>
+          <details>
+            <summary>How do payments work?</summary>
+            <p>Standard 1-4 planter orders are paid through Stripe Checkout after the form is submitted. Orders of 5+ planters are confirmed first, then a custom payment link is sent.</p>
+          </details>
+          <details>
+            <summary>Can I cancel an order?</summary>
+            <p>Orders can be cancelled before the build begins. Once materials are cut or the planter is in progress, cancellations may not be refundable.</p>
+          </details>
+          <details>
+            <summary>What if something is wrong?</summary>
+            <p>Natural wood color, grain, and small handmade variations are expected. If something is wrong with the order at pickup or delivery, make contact within 48 hours so it can be addressed.</p>
+          </details>
+        </div>
       </section>
 
       <section class="gallery section reveal" id="gallery">
         <div class="gallery-heading">
           <p class="eyebrow">Gallery</p>
-          <h2>From workshop to backyard</h2>
+          <h2>From workshop to backyard.</h2>
         </div>
-        <div class="grid">
-          <img src="Images/IMG_0929.jpg" alt="Cedar planter with flowers near front entry walkway" />
-          <img src="Images/IMG_0928.jpg" alt="Front angle of cedar planter with flowers and watering can" />
-          <img src="Images/123_1 (1).jpg" alt="Cedar planter on a deck with a tomato plant and support cage" />
-          <img src="Images/IMG_0681.jpg" alt="Handmade cedar planter in the workshop during build process" />
-          <img src="Images/IMG_0692.jpg" alt="Finished cedar planter from side angle in workshop" />
-          <img src="Images/IMG_2574.jpg" alt="Two cedar planter boxes side by side in workshop" />
-          <img src="Images/IMG_2575.jpg" alt="Drainage hole detail inside cedar planter box" />
-          <img src="Images/IMG_0690.jpg" alt="Front profile of completed cedar planter in workshop" />
+        <div class="mosaic">
+          <img class="mosaic-wide" src="Images/optimized/123_1-900.jpg" srcset="Images/optimized/123_1-480.jpg 360w, Images/optimized/123_1-900.jpg 675w" sizes="(max-width: 720px) calc(100vw - 1rem), 580px" width="675" height="900" alt="Cedar planter on a deck with a tomato plant and support cage" loading="lazy" decoding="async" />
+          <img src="Images/optimized/IMG_0928-900.jpg" srcset="Images/optimized/IMG_0928-480.jpg 480w, Images/optimized/IMG_0928-900.jpg 900w" sizes="(max-width: 720px) calc((100vw - 1.5rem) / 2), 280px" width="900" height="675" alt="Front angle of cedar planter with flowers and watering can" loading="lazy" decoding="async" />
+          <img src="Images/optimized/IMG_0681-900.jpg" srcset="Images/optimized/IMG_0681-480.jpg 480w, Images/optimized/IMG_0681-900.jpg 900w" sizes="(max-width: 720px) calc((100vw - 1.5rem) / 2), 280px" width="900" height="675" alt="Handmade cedar planter in the workshop during build process" loading="lazy" decoding="async" />
+          <img src="Images/optimized/IMG_0692-900.jpg" srcset="Images/optimized/IMG_0692-480.jpg 360w, Images/optimized/IMG_0692-900.jpg 675w" sizes="(max-width: 720px) calc((100vw - 1.5rem) / 2), 280px" width="675" height="900" alt="Finished cedar planter from side angle in workshop" loading="lazy" decoding="async" />
+          <img src="Images/optimized/IMG_2574-900.jpg" srcset="Images/optimized/IMG_2574-480.jpg 480w, Images/optimized/IMG_2574-900.jpg 900w" sizes="(max-width: 720px) calc((100vw - 1.5rem) / 2), 280px" width="900" height="675" alt="Two cedar planter boxes side by side in workshop" loading="lazy" decoding="async" />
+          <img src="Images/optimized/IMG_0690-900.jpg" srcset="Images/optimized/IMG_0690-480.jpg 480w, Images/optimized/IMG_0690-900.jpg 900w" sizes="(max-width: 720px) calc((100vw - 1.5rem) / 2), 280px" width="900" height="675" alt="Front profile of completed cedar planter in workshop" loading="lazy" decoding="async" />
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer section">
       <p>&copy; <span id="year"></span> Cedar Planter Co., a brand of Hubert Dubois</p>
       <p>
         Contact:
         <a class="contact-link" href="mailto:contact@hubiedubois.com">contact@hubiedubois.com</a>
       </p>
     </footer>
+
+    <a class="mobile-order-dock" href="#order" aria-label="Start a cedar planter order">
+      <span>Start order</span>
+      <strong id="mobile-total">$95</strong>
+    </a>
+
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      defer
     ></script>
-    <script src="script.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "LocalBusiness",
+            "@id": "https://planters.hubiedubois.com/#business",
+            "name": "Cedar Planter Co.",
+            "areaServed": "Paxton, Illinois",
+            "email": "contact@hubiedubois.com"
+          },
+          {
+            "@type": "Product",
+            "@id": "https://planters.hubiedubois.com/#classic-cedar-planter",
+            "name": "Classic Cedar Planter Box",
+            "description": "Handmade cedar planter box with approximately 15 in. x 15 in. x 15 in. interior planting space and an 8-degree taper on all sides.",
+            "image": "https://planters.hubiedubois.com/Images/optimized/IMG_0437-1150.jpg",
+            "brand": {
+              "@id": "https://planters.hubiedubois.com/#business"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "95",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://planters.hubiedubois.com/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How long does an order take?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Standard orders require at least 3 days to build. Larger quantities or custom requests may need more time, and timing is confirmed after submission."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Where is pickup?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Pickup is in Paxton, Illinois. Pickup details are shared after the order is submitted and payment is complete."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does delivery work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Delivery is available within 30 miles of Paxton for the listed delivery fee. Use the integrated delivery radius map in the order summary to check the general service area. Delivery timing is coordinated after the order is submitted."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do payments work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Standard 1-4 planter orders are paid through Stripe Checkout after the form is submitted. Orders of 5+ planters are confirmed first, then a custom payment link is sent."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I cancel an order?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Orders can be cancelled before the build begins. Once materials are cut or the planter is in progress, cancellations may not be refundable."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <script src="script.js" defer></script>
   </body>
 </html>
