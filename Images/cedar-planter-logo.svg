@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 240" role="img" aria-labelledby="logo-title logo-desc">
+  <title id="logo-title">Cedar Planter Co. logo</title>
+  <desc id="logo-desc">A tapered cedar planter box with small green leaves beside the Cedar Planter Co. wordmark.</desc>
+  <defs>
+    <style>
+      .ink { fill: #151b16; }
+      .soft-ink { fill: #38443c; }
+      .leaf { fill: #1f5a3d; }
+      .leaf-dark { fill: #123724; }
+      .moss { fill: #e0e989; }
+      .clay { fill: #a7502f; }
+      .cedar { fill: #b86a42; }
+      .cedar-dark { fill: #7d3f26; }
+      .cedar-light { fill: #d18b5e; }
+      .line { stroke: #151b16; stroke-linecap: round; stroke-linejoin: round; }
+      .wordmark {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 63px;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+      .tagline {
+        font-family: Manrope, Arial, sans-serif;
+        font-size: 19px;
+        font-weight: 800;
+        letter-spacing: 1.2px;
+      }
+    </style>
+  </defs>
+
+  <g transform="translate(36 30)">
+    <path class="moss" d="M118 13c18 4 34 13 46 27 19 22 22 51 8 80-11 23-31 40-55 48-32 11-68 4-92-19-22-21-31-52-21-81 9-28 32-48 62-55 17-4 35-4 52 0Z" opacity="0.58" />
+
+    <g transform="translate(16 24)">
+      <path class="cedar-dark" d="M28 71h124l-20 86H48L28 71Z" />
+      <path class="cedar" d="M38 84h104l-14 59H52L38 84Z" />
+      <path class="cedar-light" d="M18 57h144l-10 24H28L18 57Z" />
+      <path class="line" d="M18 57h144l-10 24H28L18 57Z" fill="none" stroke-width="6" />
+      <path class="line" d="M28 71h124l-20 86H48L28 71Z" fill="none" stroke-width="6" />
+      <path class="line" d="M52 92h76" fill="none" stroke-width="4" opacity="0.42" />
+      <path class="line" d="M50 113h80" fill="none" stroke-width="4" opacity="0.32" />
+      <path class="line" d="M56 134h66" fill="none" stroke-width="4" opacity="0.28" />
+      <path class="line" d="M79 83l-6 60" fill="none" stroke-width="4" opacity="0.24" />
+      <path class="line" d="M112 83l-6 60" fill="none" stroke-width="4" opacity="0.24" />
+      <path class="clay" d="M45 78h94l-3 10H48l-3-10Z" opacity="0.36" />
+
+      <path class="line" d="M91 57c0-23 1-36 12-50" fill="none" stroke-width="6" />
+      <path class="leaf" d="M100 28c8-19 26-26 50-24-5 21-20 33-44 34-4 0-6-4-6-10Z" />
+      <path class="leaf-dark" d="M88 32c-10-17-28-22-50-17 8 19 25 29 48 27 4 0 6-5 2-10Z" />
+      <path class="moss" d="M105 45c16-7 31-3 45 12-14 13-30 16-47 5-4-3-3-13 2-17Z" />
+    </g>
+  </g>
+
+  <g transform="translate(240 70)">
+    <text class="wordmark ink" x="0" y="58">Cedar Planter Co.</text>
+    <path class="leaf" d="M3 84h381v7H3z" />
+    <path class="moss" d="M398 84h39v7h-39z" />
+    <text class="tagline soft-ink" x="3" y="123">HANDMADE CEDAR PLANTERS - PAXTON, ILLINOIS</text>
+  </g>
+</svg>
