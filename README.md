@@ -65,3 +65,19 @@ Remote currently points to:
 https://github.com/Cfiorillo2/cedar-planter-website.git
 GitHub reports moved location:
 https://github.com/hubie-dubois/cedar-planter-website.git
+
+
+Payment confirmation page
+
+The former standalone confirmation site now lives in `confirmation/`, including
+its own stylesheet and script. GitHub Pages publishes it with the main website at:
+
+https://paxtonplanters.com/confirmation/
+
+Set this as the after-payment redirect for all eight Stripe Payment Links
+(pickup quantities 1–4 and delivery quantities 1–4). Also update any custom
+payment links that use the former confirmation domain. After saving the redirects
+and checking the checkout return flow, the old confirmation repository can be deleted.
+
+This is a static thank-you page; it does not independently verify a Stripe payment.
+Payment records and receipts remain in Stripe.
