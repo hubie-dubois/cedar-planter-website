@@ -26,7 +26,7 @@ Delivery fee: $10 when delivery is selected.
 Pickup:
 Customer is informed that pickup details are shared after order.
 Delivery:
-Limited to 25 miles of Paxton, IL.
+Limited to approximately 30 miles of Paxton, IL.
 Stripe Logic
 
 Pickup Stripe links configured for quantities 1-4.
@@ -50,10 +50,11 @@ Map
 
 Leaflet map shown in order summary.
 Center: Paxton, IL (40.4592, -88.0956).
-Circle radius: 25 miles.
+Circle radius: approximately 30 miles.
 Safari fix applied:
 Removed Leaflet CDN integrity/crossorigin attributes.
-Added map init retry + window.load fallback.
+Map assets load near the viewport, after the Leaflet stylesheet is ready.
+A text fallback preserves delivery information if the CDN fails.
 Media / Gallery
 
 Hero and gallery updated to use curated images from /Images.
@@ -81,3 +82,10 @@ and checking the checkout return flow, the old confirmation repository can be de
 
 This is a static thank-you page; it does not independently verify a Stripe payment.
 Payment records and receipts remain in Stripe.
+
+
+SEO maintenance
+
+See [SEO_AUDIT.md](SEO_AUDIT.md) for findings, validation, and manual Google/Cloudflare steps.
+Run `python3 scripts/validate-seo.py` and `node scripts/test-order.cjs` before publishing.
+The site remains plain HTML/CSS/JavaScript, published from the existing GitHub Pages root.

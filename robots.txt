@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://planters.hubiedubois.com/sitemap.xml
+Sitemap: https://paxtonplanters.com/sitemap.xml

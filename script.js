@@ -220,6 +220,7 @@ function markMapUnavailable() {
 function initDeliveryMap() {
   if (deliveryMapInitialized || !deliveryMapEl || typeof L === "undefined") return;
 
+  deliveryMapEl.replaceChildren();
   const paxtonLatLng = [40.4592, -88.0956];
   const deliveryRadiusMeters = 30 * 1609.34;
   const map = L.map("delivery-map", {
@@ -243,17 +244,37 @@ function initDeliveryMap() {
   deliveryMapInitialized = true;
 }
 
-function tryInitDeliveryMap(retries = 12) {
-  if (deliveryMapInitialized) return;
-  if (typeof L !== "undefined") {
-    initDeliveryMap();
+// Load the below-the-fold map without competing with the hero or checkout controls.
+function loadDeliveryMap() {
+  const stylesheet = document.createElement("link");
+  stylesheet.rel = "stylesheet";
+  stylesheet.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+  stylesheet.onerror = markMapUnavailable;
+  stylesheet.onload = () => {
+    const script = document.createElement("script");
+    script.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+    script.onload = () => {
+      try { initDeliveryMap(); } catch (error) { markMapUnavailable(); }
+    };
+    script.onerror = markMapUnavailable;
+    document.head.append(script);
+  };
+  document.head.append(stylesheet);
+}
+
+function observeDeliveryMap() {
+  if (!deliveryMapEl) return;
+  if (!("IntersectionObserver" in window)) {
+    loadDeliveryMap();
     return;
   }
-  if (retries <= 0) {
-    markMapUnavailable();
-    return;
-  }
-  window.setTimeout(() => tryInitDeliveryMap(retries - 1), 250);
+  const observer = new IntersectionObserver((entries) => {
+    if (entries.some((entry) => entry.isIntersecting)) {
+      observer.disconnect();
+      loadDeliveryMap();
+    }
+  }, { rootMargin: "400px" });
+  observer.observe(deliveryMapEl);
 }
 
 function getSelectedStripeLink() {
@@ -296,7 +317,7 @@ function updateTotal() {
     checkoutNote.textContent = `Payment link will open for ${quantity} planter${quantity > 1 ? "s" : ""}${isDelivery ? " with delivery" : ""}.`;
   } else {
     checkoutNote.textContent =
-      "This checkout option is not ready yet. Email contact@hubiedubois.com and I will send the correct payment link.";
+      "This checkout option is not ready yet. Email contact@paxtonplanters.com and I will send the correct payment link.";
   }
 }
 
@@ -346,7 +367,7 @@ async function submitOrderAndRedirect(event) {
   if (!isCustomQuantity && !selectedLink) {
     if (formStatus) {
       formStatus.textContent =
-        "This checkout option is not ready yet. Email contact@hubiedubois.com and I will send the correct payment link.";
+        "This checkout option is not ready yet. Email contact@paxtonplanters.com and I will send the correct payment link.";
     }
     return;
   }
@@ -423,6 +444,5 @@ if (orderForm) {
   updateFulfillmentFields();
 }
 
-tryInitDeliveryMap();
-window.addEventListener("load", () => tryInitDeliveryMap());
+observeDeliveryMap();
 if (yearEl) yearEl.textContent = new Date().getFullYear();
