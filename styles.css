@@ -1,5 +1,5 @@
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
   --paper: #f5f3ea;
   --paper-warm: #ece8da;
   --surface: #fffdf7;
@@ -15,6 +15,18 @@
   --sky: #dce9e6;
   --clay: #a7502f;
   --shadow: 0 22px 60px rgba(21, 27, 22, 0.14);
+  --on-photo: #fffdf7;
+  --on-accent: #151b16;
+  --page-mid: #fbfaf5;
+  --grid-line: rgba(21, 27, 22, 0.035);
+  --glass: rgba(255, 253, 247, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.52);
+  --panel: rgba(255, 253, 247, 0.9);
+  --rail: rgba(255, 253, 247, 0.56);
+  --selected: #edf5e6;
+  --delivery: #f4faf5;
+  --note: #f8f8ef;
+  --spec-glow: rgba(224, 233, 137, 0.34);
   --radius: 8px;
   --header-height: 72px;
   --anchor-offset: calc(var(--header-height) + 1.25rem);
@@ -25,6 +37,7 @@
 }
 
 html {
+  background-color: var(--paper);
   scroll-behavior: smooth;
 }
 
@@ -33,16 +46,16 @@ body {
   font-family: "Manrope", sans-serif;
   color: var(--ink);
   background:
-    linear-gradient(90deg, rgba(21, 27, 22, 0.035) 1px, transparent 1px),
-    linear-gradient(180deg, var(--paper) 0%, #fbfaf5 42%, var(--sky) 100%);
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(180deg, var(--paper) 0%, var(--page-mid) 42%, var(--sky) 100%), var(--paper);
   background-size: 72px 72px, auto;
   line-height: 1.55;
   overflow-x: hidden;
 }
 
-body::selection {
+::selection {
   background: var(--moss);
-  color: var(--ink);
+  color: var(--on-accent);
 }
 
 img {
@@ -99,10 +112,11 @@ section[id] {
   width: min(1180px, calc(100% - 1rem));
   margin: 0.5rem auto -5rem;
   padding: 0.55rem 0.65rem;
-  border: 1px solid rgba(255, 255, 255, 0.52);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius);
-  background: rgba(255, 253, 247, 0.82);
+  background: var(--glass);
   box-shadow: 0 10px 34px rgba(21, 27, 22, 0.12);
+  -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
 }
 
@@ -169,7 +183,7 @@ section[id] {
   position: relative;
   min-height: 92svh;
   overflow: hidden;
-  color: var(--surface);
+  color: var(--on-photo);
   isolation: isolate;
 }
 
@@ -284,7 +298,7 @@ textarea:focus-visible,
 
 .btn-primary {
   background: var(--moss);
-  color: var(--ink);
+  color: var(--on-accent);
 }
 
 .btn-primary:hover {
@@ -294,7 +308,8 @@ textarea:focus-visible,
 .btn-secondary {
   border-color: rgba(255, 255, 255, 0.46);
   background: rgba(255, 255, 255, 0.09);
-  color: var(--surface);
+  color: var(--on-photo);
+  -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
 }
 
@@ -310,6 +325,7 @@ textarea:focus-visible,
   border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: var(--radius);
   background: rgba(9, 18, 12, 0.62);
+  -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
   box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22);
 }
@@ -335,7 +351,7 @@ textarea:focus-visible,
 
 .hero-facts strong {
   margin: 0;
-  color: var(--surface);
+  color: var(--on-photo);
   font-size: 1.05rem;
   font-weight: 800;
 }
@@ -345,7 +361,7 @@ textarea:focus-visible,
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 1rem;
   border-block: 1px solid var(--line);
-  background: rgba(255, 253, 247, 0.56);
+  background: var(--rail);
 }
 
 .commerce-rail div {
@@ -440,7 +456,7 @@ textarea:focus-visible,
   gap: 0.48rem;
   border-radius: var(--radius);
   background:
-    linear-gradient(135deg, rgba(224, 233, 137, 0.34), transparent 58%),
+    linear-gradient(135deg, var(--spec-glow), transparent 58%),
     var(--surface-strong);
   border: 1px solid var(--line);
   box-shadow: 0 14px 34px rgba(21, 27, 22, 0.08);
@@ -523,7 +539,7 @@ textarea:focus-visible,
   align-content: start;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgba(255, 253, 247, 0.88);
+  background: var(--panel);
   box-shadow: 0 14px 34px rgba(21, 27, 22, 0.08);
   padding: 1rem;
 }
@@ -580,7 +596,7 @@ textarea:focus-visible,
 .order-panel {
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgba(255, 253, 247, 0.9);
+  background: var(--panel);
   box-shadow: var(--shadow);
 }
 
@@ -653,7 +669,7 @@ textarea:focus-visible,
 
 .choice-grid label:has(input:checked) {
   border-color: var(--leaf);
-  background: #edf5e6;
+  background: var(--selected);
   box-shadow: inset 0 0 0 1px var(--leaf);
 }
 
@@ -699,7 +715,7 @@ textarea:hover {
   gap: 0.75rem;
   border: 1px dashed var(--line-strong);
   border-radius: var(--radius);
-  background: #f4faf5;
+  background: var(--delivery);
   padding: 0.85rem;
 }
 
@@ -789,7 +805,7 @@ textarea:hover {
   gap: 0.55rem;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: #f8f8ef;
+  background: var(--note);
   padding: 0.85rem;
 }
 
@@ -862,7 +878,7 @@ textarea:hover {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgba(255, 253, 247, 0.9);
+  background: var(--panel);
   box-shadow: 0 12px 30px rgba(21, 27, 22, 0.07);
 }
 
@@ -926,7 +942,7 @@ textarea:hover {
 .mobile-order-dock {
   position: fixed;
   right: 0.75rem;
-  bottom: 0.75rem;
+  bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
   z-index: 35;
   display: none;
   align-items: center;
@@ -936,8 +952,8 @@ textarea:hover {
   min-height: 56px;
   border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: var(--radius);
-  background: var(--ink);
-  color: var(--surface);
+  background: #151b16;
+  color: var(--on-photo);
   box-shadow: 0 20px 44px rgba(21, 27, 22, 0.26);
   padding: 0.75rem 0.85rem;
   font-weight: 800;
@@ -1054,7 +1070,7 @@ textarea:hover {
 
 @media (max-width: 720px) {
   body {
-    padding-bottom: 5rem;
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
   }
 
   .section {
@@ -1217,3 +1233,46 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--leaf); outline
 .hero a:focus-visible, .mobile-order-dock:focus-visible { outline-color: var(--moss); }
 
 .mosaic picture { display: block; min-width: 0; min-height: 0; }
+
+/* Authored dark colors keep Safari Adaptive Dark Mode from guessing at contrast. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #111914;
+    --paper-warm: #1c261e;
+    --surface: #1b271f;
+    --surface-strong: #233127;
+    --ink: #f2f3e9;
+    --ink-soft: #d0d9cc;
+    --muted: #acbaa9;
+    --line: #3d4d3f;
+    --line-strong: #71866e;
+    --leaf: #a6d5ab;
+    --leaf-strong: #c3e7c1;
+    --sky: #172a24;
+    --clay: #edb18c;
+    --shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+    --page-mid: #142019;
+    --grid-line: rgba(210, 230, 207, 0.035);
+    --glass: rgba(22, 33, 26, 0.94);
+    --glass-border: #435344;
+    --panel: #1b271f;
+    --rail: #19251e;
+    --selected: #304833;
+    --delivery: #202f25;
+    --note: #263127;
+    --spec-glow: rgba(224, 233, 137, 0.07);
+  }
+
+  .site-nav a:hover,
+  .site-nav a:focus-visible { background: #304833; }
+  .site-nav .header-cta:hover,
+  .site-nav .header-cta:focus-visible { background: var(--leaf); }
+  .commerce-rail div { border-bottom-color: var(--line); }
+  .mobile-order-dock { border-color: var(--line-strong); }
+}
+
+input::placeholder,
+textarea::placeholder { color: var(--muted); opacity: 1; }
+
+/* Map tiles and Leaflet controls use their own light palette. */
+.delivery-map.leaflet-container { color-scheme: light; color: #151b16; }

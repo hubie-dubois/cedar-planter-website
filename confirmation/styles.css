@@ -232,19 +232,22 @@ h2 {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #111417;
-    --surface: #1b2126;
+    --bg: #111914;
+    --surface: #1b271f;
     --text: #edf1e6;
     --muted: #b8c2b3;
-    --accent: #5f9f75;
-    --accent-strong: #4d8862;
-    --border: #2b343c;
+    --accent: #a6d5ab;
+    --accent-strong: #c3e7c1;
+    --border: #3d4d3f;
     --shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
     --bg-grad-one: #223127;
     --bg-grad-two: #2b2a22;
     --shape-one: #23362a;
     --shape-two: #2d3025;
   }
+
+  .btn-primary,
+  .header-cta { color: #151b16; }
 
   .status-card,
   .next-steps {
@@ -261,3 +264,5 @@ h2 {
     display: none;
   }
 }
+
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
