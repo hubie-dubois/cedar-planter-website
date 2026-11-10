@@ -1237,34 +1237,40 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--leaf); outline
 /* Authored dark colors keep Safari Adaptive Dark Mode from guessing at contrast. */
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #111914;
-    --paper-warm: #1c261e;
-    --surface: #1b271f;
-    --surface-strong: #233127;
-    --ink: #f2f3e9;
-    --ink-soft: #d0d9cc;
-    --muted: #acbaa9;
-    --line: #3d4d3f;
-    --line-strong: #71866e;
-    --leaf: #a6d5ab;
-    --leaf-strong: #c3e7c1;
-    --sky: #172a24;
-    --clay: #edb18c;
+    --paper: #171615;
+    --moss: #e2c29b;
+    --on-accent: #211a14;
+    --paper-warm: #211f1d;
+    --surface: #242220;
+    --surface-strong: #2c2926;
+    --ink: #f3eee6;
+    --ink-soft: #d6cfc5;
+    --muted: #bdb3a7;
+    --line: #4b443d;
+    --line-strong: #8c7c6a;
+    --leaf: #dbb58d;
+    --leaf-strong: #f0d4b4;
+    --sky: #1d1b19;
+    --clay: #dfb58f;
     --shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
-    --page-mid: #142019;
-    --grid-line: rgba(210, 230, 207, 0.035);
-    --glass: rgba(22, 33, 26, 0.94);
-    --glass-border: #435344;
-    --panel: #1b271f;
-    --rail: #19251e;
-    --selected: #304833;
-    --delivery: #202f25;
-    --note: #263127;
-    --spec-glow: rgba(224, 233, 137, 0.07);
+    --page-mid: #1b1917;
+    --grid-line: rgba(236, 218, 192, 0.025);
+    --glass: rgba(31, 28, 25, 0.94);
+    --glass-border: #554b40;
+    --panel: #242220;
+    --rail: #211e1b;
+    --selected: #43362a;
+    --delivery: #29241f;
+    --note: #2d2721;
+    --spec-glow: rgba(219, 181, 141, 0.06);
   }
 
+  .btn-primary:hover { background: #f0d4b4; }
+  .hero-facts { background: rgba(25, 22, 19, 0.78); }
+  .mobile-order-dock { background: #24201c; }
+
   .site-nav a:hover,
-  .site-nav a:focus-visible { background: #304833; }
+  .site-nav a:focus-visible { background: #43362a; }
   .site-nav .header-cta:hover,
   .site-nav .header-cta:focus-visible { background: var(--leaf); }
   .commerce-rail div { border-bottom-color: var(--line); }
